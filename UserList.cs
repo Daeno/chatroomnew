@@ -19,10 +19,12 @@ namespace ConsoleApplication2
 
         public UserList(User[] users)
         {
-            try {
+            try 
+            {
                 userArrayList = new ArrayList();
                 userArrayList.Capacity = users.Length;
-                foreach(User u in users) {
+                foreach(User u in users) 
+                {
                     userArrayList.Add(u);
                 }
             }

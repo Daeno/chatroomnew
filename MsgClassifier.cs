@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication2
+namespace MsgClassifier
 {
-    class MsgClassifier
-    {
-
-
+    public enum MsgType :byte
+        { 
+        
         //Message Types from Client to Server, 0~127
-        public static enum MsgType :byte
-        {
             C_ASK_REGISTER = 0,
             C_ASK_ONLINE,
             C_ADD_BCGROUP,
@@ -30,7 +27,13 @@ namespace ConsoleApplication2
             S_ONLINE_LIST,
             S_ADD_FRIEND,
             S_REMOVE_FRIEND
+        };
+    class MsgClassifier
+    {
+        public byte[] Encode_Server_Msg_FROM_BCGROUP(int BCGROUP, string content)
+        {
+            
         }
-
+        public string
     }
 }

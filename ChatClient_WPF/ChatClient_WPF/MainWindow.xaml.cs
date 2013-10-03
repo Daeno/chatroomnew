@@ -45,6 +45,7 @@ namespace ChatClient_WPF
         {
             try
             {
+                userName.IsReadOnly = true;
                 clientSocket.Connect("127.0.0.1", 8888);
                 netstream = clientSocket.GetStream();
                 byte[] outdata = System.Text.Encoding.ASCII.GetBytes((userName.Text+"\x01").ToCharArray());
@@ -103,15 +104,17 @@ namespace ChatClient_WPF
                 }
                 catch(Exception e)
                 {
-                    MessageBox.Show(e.ToString());
-
+                    //MessageBox.Show(e.ToString());
+                    return;
                 }
             }
         }
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            //this.clientSocket.EndConnect();
+            this.clientSocket.Close();
             base.OnClosing(e);
         }
+
+
     }
 }
